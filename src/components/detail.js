@@ -8,6 +8,8 @@ const api = {
     base: "https://api.openweathermap.org/data/2.5/",
 }
 
+console.log(process.env.API_KEY)
+
 function Detail() {
 
     const [ location, setLocation ] = useState('');
