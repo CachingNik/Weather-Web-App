@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import '../css/detail.css';
 import { Line } from 'react-chartjs-2';
 import { WiStrongWind, WiHumidity } from 'weather-icons-react';
-require('dotenv').config();
 
 const api = {
     key: process.env.API_KEY,
@@ -138,7 +137,7 @@ function Detail() {
             ) : (' ') }
         </div>
         <div className="graph">
-            <b>Note</b>: Click on any Legend to eanble/disable them.
+            <b>Note</b>: Click on any Legend to enable/disable them.
             <Line data={data}
             options={{
                 title:{
