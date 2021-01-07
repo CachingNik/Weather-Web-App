@@ -8,8 +8,6 @@ const api = {
     base: "https://api.openweathermap.org/data/2.5/",
 }
 
-console.log(process.env.API_KEY)
-
 function Detail() {
 
     const [ location, setLocation ] = useState('');
@@ -34,7 +32,7 @@ function Detail() {
             var t = new Date();
             t.setHours(0,0,0,0);
             t = t/1000 - 86400;
-            fetch(`${api.base}onecall/timemachine?lat=${lat}&lon=${lon}&dt=${t}&APPID=${api.key}`)
+            fetch(`${api.base}onecall/timemachine?lat=${lat}&lon=${lon}&dt=${t}&APPID=${process.env.API_KEY}`)
             .then(res => res.json())
             .then(result => {
                 const x = result.hourly.map(a => {
@@ -57,7 +55,7 @@ function Detail() {
 
     const search = evt => {
         if(evt.key === "Enter") {
-            fetch(`${api.base}weather?q=${location}&units=metirc&APPID=${api.key}`)
+            fetch(`${api.base}weather?q=${location}&units=metirc&APPID=${process.env.API_KEY}`)
             .then(res => res.json())
             .then(result => {
                 console.log(result)
