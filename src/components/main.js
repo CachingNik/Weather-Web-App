@@ -4,7 +4,12 @@ import Lgraph from './lgraph';
 //import api from '../secret/config';
 import '../css/main.css';
 import Dia from './dia';
-require('dotenv').config()
+const aws = require('aws-sdk');
+
+const api = new aws.S3({
+  key: process.env.API_KEY,
+  base: process.env.API_BASE
+});
 
 export const WeatherContext = React.createContext();
 
@@ -49,7 +54,7 @@ function Main() {
       return;
     }
 
-    result = await fetch(`${process.env.API_BASE}weather?q=${city1}&units=metirc&APPID=${process.env.API_KEY}`);
+    result = await fetch(`${api.base}weather?q=${city1}&units=metirc&APPID=${api.key}`);
     result = await result.json();
     if(result.cod === "404"){
       setCity1('');
@@ -61,7 +66,7 @@ function Main() {
     lon1 = result.coord.lon;
     setLc1(result.name)
 
-    result = await fetch(`${process.env.API_BASE}weather?q=${city2}&units=metirc&APPID=${process.env.API_KEY}`);
+    result = await fetch(`${api.base}weather?q=${city2}&units=metirc&APPID=${api.key}`);
     result = await result.json();
     if(result.cod === "404"){
       setCity1('');
@@ -77,7 +82,7 @@ function Main() {
     t.setHours(0,0,0,0);
     t = t/1000 - 86400;
 
-    fetch(`${process.env.API_BASE}onecall/timemachine?lat=${lat1}&lon=${lon1}&dt=${t}&APPID=${process.env.API_KEY}`)
+    fetch(`${api.base}onecall/timemachine?lat=${lat1}&lon=${lon1}&dt=${t}&APPID=${api.key}`)
     .then(res => res.json())
     .then(result => {
       const arr = result.hourly.map(temp => {
@@ -86,7 +91,7 @@ function Main() {
       setTemp1(arr)
     })
 
-    fetch(`${process.env.API_BASE}onecall/timemachine?lat=${lat2}&lon=${lon2}&dt=${t}&APPID=${process.env.API_KEY}`)
+    fetch(`${api.base}onecall/timemachine?lat=${lat2}&lon=${lon2}&dt=${t}&APPID=${api.key}`)
     .then(res => res.json())
     .then(result => {
       const arr = result.hourly.map(temp => {
@@ -105,7 +110,7 @@ function Main() {
       t.setHours(0,0,0,0);
       t = t/1000 - 86400;
 
-      fetch(`${process.env.API_BASE}onecall/timemachine?lat=${lat}&lon=${lon}&dt=${t}&APPID=${process.env.API_KEY}`)
+      fetch(`${api.base}onecall/timemachine?lat=${lat}&lon=${lon}&dt=${t}&APPID=${api.key}}`)
       .then(res => res.json())
       .then(result => {
         const arrws = result.hourly.map(oc => {

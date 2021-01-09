@@ -3,7 +3,12 @@ import '../css/detail.css';
 import { WiStrongWind, WiHumidity } from 'weather-icons-react';
 //import api from '../secret/config';
 import { WeatherContext } from './main';
-require('dotenv').config()
+const aws = require('aws-sdk');
+
+const api = new aws.S3({
+  key: process.env.API_KEY,
+  base: process.env.API_BASE
+});
 
 function Detail() {
 
@@ -11,7 +16,7 @@ function Detail() {
 
     const search = evt => {
         if(evt.key === "Enter") {
-            fetch(`${process.env.API_BASE}weather?q=${location}&units=metirc&APPID=${process.env.API_KEY}`)
+            fetch(`${api.base}weather?q=${location}&units=metirc&APPID=${api.key}`)
             .then(res => res.json())
             .then(result => {
                 setWeather(result)
