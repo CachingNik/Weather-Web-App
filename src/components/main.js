@@ -4,6 +4,7 @@ import Lgraph from './lgraph';
 //import api from '../secret/config';
 import '../css/main.css';
 import Dia from './dia';
+require('dotenv').config()
 
 export const WeatherContext = React.createContext();
 

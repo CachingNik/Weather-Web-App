@@ -3,6 +3,7 @@ import '../css/detail.css';
 import { WiStrongWind, WiHumidity } from 'weather-icons-react';
 //import api from '../secret/config';
 import { WeatherContext } from './main';
+require('dotenv').config()
 
 function Detail() {
 
