@@ -1,0 +1,10 @@
+.graph {
+    min-width: 1140px;
+    overflow: hidden;
+    border-radius: 5px;
+    box-shadow: 0 2px 30px rgba(0, 0, 0, 0.2);
+    background: whitesmoke;
+    position: relative;
+    transform: translate3d(0, 0, 0);
+    margin-bottom: 5px;
+}

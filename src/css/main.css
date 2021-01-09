@@ -1,0 +1,68 @@
+body {
+    background: linear-gradient(red, blue);
+}
+
+.heading {
+    text-align: center;
+    font-size: 40px;
+    text-shadow: 2px 2px blue;
+}
+
+.container {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 20px;
+    column-gap: 40px;
+    float: left;
+}
+
+.cbut {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+}
+
+.cbutdes {
+    background-color: orange;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.cbutdes:hover {
+    background-color: lightgreen;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.compform {
+    text-align: center;
+    color: yellowgreen;
+}
+
+.cin {
+    padding: 15px;
+    appearance: none;
+    background: none;
+    border: none;
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 16px;
+    margin: 10px;
+}
+
+.gobutdes {
+    border-radius: 5px;
+    margin-left: 10px;
+    padding: 10px;
+    transition-duration: 0.4s;
+    background-color: violet;
+    border: 2px solid #4CAF50;
+}
+
+.gobutdes:hover {
+    background-color: whitesmoke;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
