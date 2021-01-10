@@ -8,8 +8,8 @@ import runtimeEnv from '@mars/heroku-js-runtime-env';
 const env = runtimeEnv();
 
 const api = {
-    base: env.API_BASE,
-    key: env.API_KEY
+    base: env.REACT_APP_API_BASE,
+    key: env.REACT_APP_API_KEY
 }
 
 function Detail() {
