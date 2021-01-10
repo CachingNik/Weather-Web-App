@@ -4,12 +4,14 @@ import Lgraph from './lgraph';
 //import api from '../secret/config';
 import '../css/main.css';
 import Dia from './dia';
-const aws = require('aws-sdk');
+import runtimeEnv from '@mars/heroku-js-runtime-env';
 
-const api = new aws.S3({
-  key: process.env.API_KEY,
-  base: process.env.API_BASE
-});
+const env = runtimeEnv();
+
+const api = {
+    base: env.API_BASE,
+    key: env.API_KEY
+}
 
 export const WeatherContext = React.createContext();
 
