@@ -112,7 +112,7 @@ function Main() {
       t.setHours(0,0,0,0);
       t = t/1000 - 86400;
 
-      fetch(`${api.base}onecall/timemachine?lat=${lat}&lon=${lon}&dt=${t}&APPID=${api.key}}`)
+      fetch(`${api.base}onecall/timemachine?lat=${lat}&lon=${lon}&dt=${t}&APPID=${api.key}`)
       .then(res => res.json())
       .then(result => {
         const arrws = result.hourly.map(oc => {
